@@ -1,4 +1,5 @@
 
+require "rspec-given"
 require "rspec"
 
 require_relative "task"
@@ -10,6 +11,7 @@ describe Task do
 
   describe "#initialize" do
     it "takes a description for its first argument" do
+      #type/classes
       expect(Task.new("Feed the parakeet")).to be_a_kind_of(Task)
     end
 
@@ -41,7 +43,8 @@ describe Task do
       # This is some RSpec goodness which expects a
       # method `complete?` to be defined which returns
       # true or false.
-      #
+      
+      #predicate matchers (complete is the written method)
       expect(task).not_to be_complete
       task.complete!
       expect(task).to be_complete

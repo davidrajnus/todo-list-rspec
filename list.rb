@@ -1,3 +1,5 @@
+require "byebug"
+
 class List
   attr_reader :title, :tasks
 
@@ -8,10 +10,14 @@ class List
 
   def add_task(task)
     tasks << task
+
   end
 
   def complete_task(index)
-    tasks[index].complete!
+    return unless @tasks[index]
+    if tasks[index].complete!
+      return true
+    end
   end
 
   def delete_task(index)
